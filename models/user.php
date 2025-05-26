@@ -10,8 +10,14 @@ function findUserByEmail($conn, $email, $includePassword = true) {
 }
 
 function getDataUser($conn, $id) {
-    $stmt = $conn->prepare("SELECT u.*, e.NSS, e.RFC, e.CURP FROM Usuario u 
-                            LEFT JOIN Empleado e ON u.IDUsuario = e.IDEmpleado
+    $stmt = $conn->prepare("SELECT 
+                                u.*, 
+                                COALESCE(e.NSS, a.NSS) AS NSS, 
+                                COALESCE(e.RFC, a.RFC) AS RFC, 
+                                COALESCE(e.CURP, a.CURP) AS CURP
+                            FROM Usuario u
+                            LEFT JOIN Empleado e ON u.IDUsuario = e.IDEmpleado AND u.TipoUsuario = 'Empleado'
+                            LEFT JOIN Admin a ON u.IDUsuario = a.IDAdmin AND u.TipoUsuario = 'Admin'
                             WHERE u.IDUsuario = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();

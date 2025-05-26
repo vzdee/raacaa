@@ -55,7 +55,7 @@ include '../controllers/profile.php';
        value="<?= htmlspecialchars($usuario['Telefono'] ?? '') ?>">
                     </div>
 
-                    <?php if ($usuario["TipoUsuario"] === "Empleado"): ?>
+                    <?php if ($usuario["TipoUsuario"] === "Admin" || $usuario["TipoUsuario"] === "Empleado"): ?>
                     <div class="input-group">
                         <label for="NSS">NSS</label>
                         <input type="text" id="NSS" name="NSS" placeholder="Número de Seguro Social" required

@@ -66,6 +66,6 @@ require_once "../core/session.php";
         </div>
       </fieldset>
     </form>
-  </div>
+  </div>  
 </body>
 </html>

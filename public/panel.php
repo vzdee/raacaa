@@ -58,7 +58,7 @@ require_once "../models/services.php";
                 </thead>
                 <tbody>
                     <?php
-                    
+                    renderServicesByStatus($conn, "Pendiente");
                     ?>
                 </tbody>
           </table>

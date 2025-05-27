@@ -38,7 +38,7 @@ require_once "../core/session.php";
 
   <div id="solicitarservicio" class="contenedor hidden">
     <h1>Solicitar Servicio</h1>
-    <form class="form-section" method="POST" action="">
+    <form class="form-section" method="POST" action="../controllers/services.php">
       <fieldset>
         <legend>Datos del Servicio</legend>
         <div class="input-group">
@@ -55,12 +55,7 @@ require_once "../core/session.php";
           <label for="fecha">Fecha Deseada</label>
           <input type="date" id="fecha" name="date" required>
         </div>
-
-        <div class="input-group">
-          <label for="idusuario">ID de Usuario</label>
-          <input type="text" id="idusuario" name="IDUsuario" placeholder="ID del Usuario" required>
-        </div>
-
+        
         <div class="button-container">
           <button type="submit">Solicitar Servicio</button>
         </div>

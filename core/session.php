@@ -29,3 +29,4 @@ function isCliente() {
 function isLoggedIn() {
     return isset($_SESSION["IDUsuario"]);
 }
+?>
